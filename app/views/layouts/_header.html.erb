@@ -1,0 +1,39 @@
+<header>
+  <% if customer_signed_in? %>
+    <div class="row">
+      <div class="col">
+        <%= link_to "home", root_path %>
+      </div>
+      <div class="col">
+        <%= link_to "マイページ", root_path %>
+      </div>
+      <div class="col">
+        <%= link_to "商品一覧", root_path %>
+      </div>
+      <div class="col">
+        <%= link_to "カート", root_path %>
+      </div>
+      <div class="col">
+        <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+      </div>
+    </div>
+  <% else %>
+    <div class="row">
+      <div class="col">
+        <%= link_to "home", root_path %>
+      </div>
+      <div class="col">
+        <%= link_to "about", homes_about_path %>
+      </div>
+      <div class="col">
+        <%= link_to "商品一覧", root_path %>
+      </div>
+      <div class="col">
+        <%= link_to "新規登録", new_customer_registration_path %>
+      </div>
+      <div class="col">
+        <%= link_to "ログイン", new_customer_session_path %>
+      </div>
+    </div>
+  <% end %>
+</header>
