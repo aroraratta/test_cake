@@ -1,21 +1,19 @@
                                   Prefix Verb   URI Pattern                                                                                       Controller#Action
                                     root GET    /                                                                                                 homes#top
                              homes_about GET    /homes/about(.:format)                                                                            homes#about
-                    new_customer_session GET    /customers/sign_in(.:format)                                                                      devise/sessions#new
-                        customer_session POST   /customers/sign_in(.:format)                                                                      devise/sessions#create
-                destroy_customer_session DELETE /customers/sign_out(.:format)                                                                     devise/sessions#destroy
-                   new_customer_password GET    /customers/password/new(.:format)                                                                 devise/passwords#new
-                  edit_customer_password GET    /customers/password/edit(.:format)                                                                devise/passwords#edit
-                       customer_password PATCH  /customers/password(.:format)                                                                     devise/passwords#update
-                                         PUT    /customers/password(.:format)                                                                     devise/passwords#update
-                                         POST   /customers/password(.:format)                                                                     devise/passwords#create
-            cancel_customer_registration GET    /customers/cancel(.:format)                                                                       devise/registrations#cancel
-               new_customer_registration GET    /customers/sign_up(.:format)                                                                      devise/registrations#new
-              edit_customer_registration GET    /customers/edit(.:format)                                                                         devise/registrations#edit
-                   customer_registration PATCH  /customers(.:format)                                                                              devise/registrations#update
-                                         PUT    /customers(.:format)                                                                              devise/registrations#update
-                                         DELETE /customers(.:format)                                                                              devise/registrations#destroy
-                                         POST   /customers(.:format)                                                                              devise/registrations#create
+                    new_customer_session GET    /customers/sign_in(.:format)                                                                      public/sessions#new
+                        customer_session POST   /customers/sign_in(.:format)                                                                      public/sessions#create
+                destroy_customer_session DELETE /customers/sign_out(.:format)                                                                     public/sessions#destroy
+            cancel_customer_registration GET    /customers/cancel(.:format)                                                                       public/registrations#cancel
+               new_customer_registration GET    /customers/sign_up(.:format)                                                                      public/registrations#new
+              edit_customer_registration GET    /customers/edit(.:format)                                                                         public/registrations#edit
+                   customer_registration PATCH  /customers(.:format)                                                                              public/registrations#update
+                                         PUT    /customers(.:format)                                                                              public/registrations#update
+                                         DELETE /customers(.:format)                                                                              public/registrations#destroy
+                                         POST   /customers(.:format)                                                                              public/registrations#create
+                       new_admin_session GET    /admins/sign_in(.:format)                                                                         admins/sessions#new
+                           admin_session POST   /admins/sign_in(.:format)                                                                         admins/sessions#create
+                   destroy_admin_session DELETE /admins/sign_out(.:format)                                                                        admins/sessions#destroy
            rails_postmark_inbound_emails POST   /rails/action_mailbox/postmark/inbound_emails(.:format)                                           action_mailbox/ingresses/postmark/inbound_emails#create
               rails_relay_inbound_emails POST   /rails/action_mailbox/relay/inbound_emails(.:format)                                              action_mailbox/ingresses/relay/inbound_emails#create
            rails_sendgrid_inbound_emails POST   /rails/action_mailbox/sendgrid/inbound_emails(.:format)                                           action_mailbox/ingresses/sendgrid/inbound_emails#create
