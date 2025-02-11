@@ -11,4 +11,8 @@ Rails.application.routes.draw do
   devise_for :admins, skip: [:confirmations, :omniauth_callbacks, :passwords, :registrations, :unlocks], controllers: {
     sessions: "admins/sessions"
   }
+
+  namespace :admins do
+    resources :items, only: [:new, :create]
+  end
 end
