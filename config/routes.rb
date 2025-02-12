@@ -8,11 +8,11 @@ Rails.application.routes.draw do
     sessions: "public/sessions"
   }
 
-  devise_for :admins, skip: [:confirmations, :omniauth_callbacks, :passwords, :registrations, :unlocks], controllers: {
-    sessions: "admins/sessions"
+  devise_for :admin, skip: [:confirmations, :omniauth_callbacks, :passwords, :registrations, :unlocks], controllers: {
+    sessions: "admin/sessions"
   }
 
-  namespace :admins do
+  namespace :admin do
     resources :items, only: [:new, :create]
   end
 end
