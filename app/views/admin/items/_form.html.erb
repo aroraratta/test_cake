@@ -1,0 +1,23 @@
+<%= form_with model:item, url: url do |f| %>
+  <%= f.label :item_image, "画像" %>
+  <%= f.file_field :item_image,  accept:'image/*' %>
+  
+  <%= f.label :name, "商品名" %>
+  <%= f.text_field :name %>
+  
+  <%= f.label :name, "商品説明" %>
+  <%= f.text_area :introduction %>
+  
+  <%= f.label "ジャンル" %>
+  
+  <%= f.label :name, "税抜き価格" %>
+  <%= f.text_field :price %>
+  
+  <%= f.label :is_active, "販売ステータス" %>
+  <%= f.radio_button :is_active, true %>
+  <%= f.label :is_active, "販売中" %>
+  <%= f.radio_button :is_active, false %>
+  <%= f.label :is_active, "販売停止中" %>
+  
+	<%= f.submit submit %>
+<% end %>
