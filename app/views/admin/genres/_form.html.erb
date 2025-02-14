@@ -1,0 +1,5 @@
+<%= form_with model:genre, url: url do |f| %>
+	<%= f.label :name, "ジャンル名" %>
+	<%= f.text_field :name %>
+	<%= f.submit submit %>
+<% end %>

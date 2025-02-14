@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'genres/index'
+    get 'genres/edit'
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "homes#top"
   get "homes/about"
@@ -13,6 +17,7 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    resources :items, only: [:new, :create, :index, :show]
+    resources :items, only: [:new, :create, :index, :show, :edit, :update]
+    resources :genres, only: [:create, :index, :edit, :update]
   end
 end

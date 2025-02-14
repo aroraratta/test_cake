@@ -1,4 +1,6 @@
                                   Prefix Verb   URI Pattern                                                                                       Controller#Action
+                      admin_genres_index GET    /admin/genres/index(.:format)                                                                     admin/genres#index
+                       admin_genres_edit GET    /admin/genres/edit(.:format)                                                                      admin/genres#edit
                                     root GET    /                                                                                                 homes#top
                              homes_about GET    /homes/about(.:format)                                                                            homes#about
                     new_customer_session GET    /customers/sign_in(.:format)                                                                      public/sessions#new
@@ -17,7 +19,15 @@
                              admin_items GET    /admin/items(.:format)                                                                            admin/items#index
                                          POST   /admin/items(.:format)                                                                            admin/items#create
                           new_admin_item GET    /admin/items/new(.:format)                                                                        admin/items#new
+                         edit_admin_item GET    /admin/items/:id/edit(.:format)                                                                   admin/items#edit
                               admin_item GET    /admin/items/:id(.:format)                                                                        admin/items#show
+                                         PATCH  /admin/items/:id(.:format)                                                                        admin/items#update
+                                         PUT    /admin/items/:id(.:format)                                                                        admin/items#update
+                            admin_genres GET    /admin/genres(.:format)                                                                           admin/genres#index
+                                         POST   /admin/genres(.:format)                                                                           admin/genres#create
+                        edit_admin_genre GET    /admin/genres/:id/edit(.:format)                                                                  admin/genres#edit
+                             admin_genre PATCH  /admin/genres/:id(.:format)                                                                       admin/genres#update
+                                         PUT    /admin/genres/:id(.:format)                                                                       admin/genres#update
            rails_postmark_inbound_emails POST   /rails/action_mailbox/postmark/inbound_emails(.:format)                                           action_mailbox/ingresses/postmark/inbound_emails#create
               rails_relay_inbound_emails POST   /rails/action_mailbox/relay/inbound_emails(.:format)                                              action_mailbox/ingresses/relay/inbound_emails#create
            rails_sendgrid_inbound_emails POST   /rails/action_mailbox/sendgrid/inbound_emails(.:format)                                           action_mailbox/ingresses/sendgrid/inbound_emails#create
