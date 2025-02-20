@@ -1,2 +1,27 @@
-<h1>Homes#top</h1>
-<p>Find me in app/views/homes/top.html.erb</p>
+<div class="customer-page">
+  <div class="genre-index">
+		<h3>ジャンル一覧</h3>
+		<% @genres.each do |genre| %>
+			<%= link_to genre.name %>
+		<% end %>
+  </div>
+  <div class="content">
+    <div class="top-image">
+      <p>
+        ようこそ、NaganoCakeへ!<br>
+        このサイトは、ケーキ販売のECサイトになります。<br>
+        会員でない方も商品の閲覧はできますが、<br>
+        購入には会員登録が必要になります。
+      </p>
+    </div>
+    <h2>オススメ商品</h2>
+    <div>
+      <% @items.each do |item| %>
+          <%= image_tag item.item_image %>
+          <h5><%= item.genre.name %></h5>
+          <p><%= item.name %></p>
+          <p><%= item.price %>円</p>
+      <% end %>
+    </div>
+  </div>
+</div>

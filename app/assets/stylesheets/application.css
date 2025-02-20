@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+ .customer-page {
+  display: flex;
+  flex-direction: row;
+ }
