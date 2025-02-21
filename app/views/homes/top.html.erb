@@ -15,12 +15,14 @@
       </p>
     </div>
     <h2>オススメ商品</h2>
-    <div>
+    <div class="top-item-information">
       <% @items.each do |item| %>
-          <%= image_tag item.item_image %>
+        <div class="top-item">
+          <%= image_tag item.get_item_image %>
           <h5><%= item.genre.name %></h5>
           <p><%= item.name %></p>
           <p><%= item.price %>円</p>
+        </div>
       <% end %>
     </div>
   </div>

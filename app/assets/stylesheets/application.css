@@ -14,7 +14,28 @@
  *= require_self
  */
 
- .customer-page {
+.customer-page {
   display: flex;
   flex-direction: row;
  }
+
+.top-image {
+  background-image: url(homes_top_cake.jpg); 
+ }
+
+.top-item-information {
+  display: flex;
+  .top-item {
+    img {
+      height: 100px;
+      width: 150px;
+      object-fit: cover;
+    }
+    h5 {
+      margin: 0;
+    }
+    p {
+      margin: 0;
+    }
+  }
+}
