@@ -13,6 +13,12 @@
  *= require_tree .
  *= require_self
  */
+ .genre-index {
+  margin-right: 50px;
+  a {
+    display: flex;
+  }
+ }
 
 .customer-page {
   display: flex;
@@ -20,7 +26,10 @@
  }
 
 .top-image {
-  background-image: url(homes_top_cake.jpg); 
+  height: 500px;
+  width: 750px;
+  background-image: url(homes_top_cake.jpg);
+  object-fit: cover;
  }
 
 .top-item-information {
@@ -33,9 +42,11 @@
     }
     h5 {
       margin: 0;
+      text-align: center;
     }
     p {
       margin: 0;
+      text-align: center;
     }
   }
 }
