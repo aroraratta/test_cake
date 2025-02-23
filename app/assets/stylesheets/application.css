@@ -26,7 +26,7 @@ main {
 }
 
 .container {
-	height: 100%;
+  min-height: 90vh;
 	width: 80%;
 	margin: 0 auto;
   background-color: #fff5fe;
@@ -38,10 +38,11 @@ main {
  }
 
  .genre-index {
-  margin: 50px 40px;
+  margin: 50px 50px;
   text-align: center;
   background-color: #ffe6fd;
   width: 300px;
+  min-height: 70vh;
   border-radius: 10px;
   a {
     display: flex;
@@ -50,12 +51,14 @@ main {
     text-decoration: none;
   }
  }
-
+ 
+/* ----------homes#top用CSS */
  .content {
   margin: 50px auto;
   .top-image {
+    margin-bottom: 30px;
     height: 500px;
-    width: 850px;
+    width: 900px;
     background-image: url(homes_top_cake.jpg);
     background-size: cover;
     position: relative;
@@ -74,20 +77,59 @@ main {
 .top-item-information {
   display: flex;
   .top-item {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    background-color: #ffe6fd;
+    transition: background-color 0.3s ease;
     img {
       height: 100px;
       width: 150px;
       object-fit: cover;
     }
-    h5 {
+    h5, p {
       text-align: center;
     }
-    p {
+  }
+  .top-item:hover {
+    background-color: #ffbaf9;
+  }
+}
+
+/* ----------public/items#index用CSS */
+.item-index {
+  width: 100%;
+  margin: 50px;
+  .item-index-title {
+    h2, p {
+      display: inline-block;
+    }
+  }
+  .six-items {
+    display: flex;
+    flex-wrap: wrap;
+    .item-cell {
+      width: calc(25% - 5px);
+      margin: 5px;
+      padding: 10px;
+      background-color: #ffe6fd;
+      transition: background-color 0.3s ease;
+      border-radius: 10px;
       text-align: center;
+      img {
+        height: 150px;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+    .item-cell:hover {
+      background-color: #ffbaf9;
     }
   }
 }
 
+
+/* ----------ヘッダー用CSS */
 header {
   display: flex;
   justify-content: space-between;

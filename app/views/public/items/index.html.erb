@@ -6,19 +6,14 @@
         <%= link_to genre.name %>
       <% end %>
     </div>
-    <div class="content">
-      <div class="top-image">
-        <p>
-          ようこそ、NaganoCakeへ!<br>
-          このサイトは、ケーキ販売のECサイトになります。<br>
-          会員でない方も商品の閲覧はできますが、<br>
-          購入には会員登録が必要になります。
-        </p>
+    <div class="item-index">
+      <div class="item-index-title">
+        <h2>商品一覧</h2>
+        <p>(全<%= @all_items_count %>件)</p>
       </div>
-      <h2><新作!!> オススメ商品</h2>
-      <div class="top-item-information">
+      <div class="six-items">
         <% @items.each do |item| %>
-          <%= link_to root_path, class: "top-item" do %>
+          <%= link_to root_path, class: "item-cell" do %>
             <%= image_tag item.get_item_image %>
             <h5><%= item.genre.name %></h5>
             <p><%= item.name %></p>
