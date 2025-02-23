@@ -1,57 +1,40 @@
-<header>
-  <% if customer_signed_in? %>
-    <div>
-      <%= link_to "home", root_path %>
+<div class="logo"></div>
+<div class="header-contents">
+  <div class="header-login-status-and-search">
+    <div class="header-search">
+      <p>検索</p>
     </div>
-    <div>
+    <div class="header-login-status">
+      <% if customer_signed_in? %>
+        <p>ログイン中(<%= current_customer.name%>さん)</p>
+      <% elsif admin_signed_in? %>
+        <p>管理者ログイン中</p>
+      <% else %>
+        <p>ログインしてください</p>
+      <% end %>
+    </div>
+  </div>
+  <div class="header-links">
+    <% if customer_signed_in? %>
+      <%= link_to "Home", root_path %>
       <%= link_to "マイページ", root_path %>
-    </div>
-    <div>
       <%= link_to "商品一覧", root_path %>
-    </div>
-    <div>
       <%= link_to "カート", root_path %>
-    </div>
-    <div>
       <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
-    </div>
-  <% elsif admin_signed_in? %>
-    <div>
-      <%= link_to "home", root_path %>
-    </div>
-    <div>
+    <% elsif admin_signed_in? %>
+      <%= link_to "Home", root_path %>
       <%= link_to "商品一覧", admin_items_path %>
-    </div>
-    <div>
       <%= link_to "会員一覧", admin_customers_path %>
-    </div>
-    <div>
       <%= link_to "注文履歴一覧", root_path %>
-    </div>
-    <div>
       <%= link_to "ジャンル一覧", admin_genres_path %>
-    </div>
-    <div>
       <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-    </div>
-  <% else %>
-    <div>
-      <%= link_to "home", root_path %>
-    </div>
-    <div>
-      <%= link_to "about", homes_about_path %>
-    </div>
-    <div>
+    <% else %>
+      <%= link_to "Home", root_path %>
+      <%= link_to "About", homes_about_path %>
       <%= link_to "商品一覧", root_path %>
-    </div>
-    <div>
       <%= link_to "新規登録", new_customer_registration_path %>
-    </div>
-    <div>
       <%= link_to "ログイン", new_customer_session_path %>
-    </div>
-    <div>
       <%= link_to "管理者ログイン", new_admin_session_path %>
-    </div>
-  <% end %>
-</header>
+    <% end %>
+  </div>
+</div>

@@ -38,11 +38,11 @@ main {
  }
 
  .genre-index {
-  margin: 50px 50px;
+  margin: 50px 40px;
   text-align: center;
   background-color: #ffe6fd;
   width: 300px;
-  border-radius: 5%;
+  border-radius: 10px;
   a {
     display: flex;
     justify-content: center;
@@ -55,7 +55,7 @@ main {
   margin: 50px auto;
   .top-image {
     height: 500px;
-    width: 800px;
+    width: 850px;
     background-image: url(homes_top_cake.jpg);
     background-size: cover;
     position: relative;
@@ -84,6 +84,44 @@ main {
     }
     p {
       text-align: center;
+    }
+  }
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  .logo {
+    margin-left: 50px;
+    height: 100px;
+    width: 250px;
+    background-image: url(logo.png);
+    background-size: contain;
+  }
+  .header-contents{
+    text-align: right;
+    .header-links {
+      display: flex;
+      a {
+        text-decoration: none;
+        color: white;
+        margin: 10px;
+      }
+    }
+    .header-login-status-and-search {
+      display: flex;
+      justify-content: flex-end;
+      .header-login-status {
+        p {
+          color: white;
+          margin: 10px;
+        }
+      }
+      .header-search {
+        margin: 10px;
+      }
     }
   }
 }
