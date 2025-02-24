@@ -128,8 +128,34 @@ main {
   }
 }
 
-
 /* ----------public/items#show用CSS */
+.item-show {
+  width: 100%;
+  margin: 50px;
+  display: flex;
+  .item-image {
+    height: 300px;
+    width: 400px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  .item-information {
+    margin: 0px 20px;
+    h3, p {
+      margin: 10px;
+    }
+    .item-information-price {
+      margin: 10px;
+      p {
+        display: inline-block;
+        margin: 0;
+      }
+    }
+    .item-information-orde {
+      margin: 10px;
+    }
+  }
+}
 
 
 /* ----------ヘッダー用CSS */

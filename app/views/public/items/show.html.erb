@@ -7,9 +7,7 @@
       <% end %>
     </div>
     <div class="item-show">
-      <div class="item-image">
-        <%= image_tag @item.get_item_image %>
-      </div>
+      <%= image_tag @item.get_item_image, class: "item-image" %>
       <div class="item-information">
         <h3><%= @item.name %></h3>
         <p><%= @item.introduction %></p>
