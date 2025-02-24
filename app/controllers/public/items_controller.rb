@@ -7,5 +7,7 @@ class Public::ItemsController < ApplicationController
   end
 
   def show
+    @genres = Genre.only_active
+    @item = Item.where_genre_active.find(params[:id])
   end
 end

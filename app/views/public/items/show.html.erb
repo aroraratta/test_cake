@@ -1,2 +1,35 @@
-<h1>Public::Items#show</h1>
-<p>Find me in app/views/public/items/show.html.erb</p>
+<div class="container">
+  <div class="customer-page">
+    <div class="genre-index">
+      <h3>ジャンル一覧</h3>
+      <% @genres.each do |genre| %>
+        <%= link_to genre.name %>
+      <% end %>
+    </div>
+    <div class="item-show">
+      <div class="item-image">
+        <%= image_tag @item.get_item_image %>
+      </div>
+      <div class="item-information">
+        <h3><%= @item.name %></h3>
+        <p><%= @item.introduction %></p>
+        <div class="item-information-price">
+          <p>￥<%= @item.with_tax_price %></p>
+          <p>(税込)</p>
+        </div>
+        <div class="item-information-order">
+				  <% if customer_signed_in? %>
+            <div class="item-information-order-amount">
+							<%= select :amount, [*(1..10)] %>
+            </div>
+            <div class="positive-button">
+							<%= f.submit "数量変更", class: "btn btn-primary" %>
+            </div>
+          <% else %>
+            <p>注文するために<%= link_to "ログイン", new_customer_session_path %>してください。</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

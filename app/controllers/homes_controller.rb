@@ -1,7 +1,7 @@
 class HomesController < ApplicationController
   def top
     @genres = Genre.all
-    @items = Item.all
+    @items = Item.recommended
   end
 
   def about
