@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="customer-page">
+    <div class="genre-index">
+      <h3>ジャンル一覧</h3>
+      <% @genres.each do |genre| %>
+        <%= link_to genre.name %>
+      <% end %>
+    </div>
+    <div class="mypage">
+      <div class="mypage-title">
+        a
+      </div>
+      <div class="mypage-buttons">
+        <div class="">mypage-edit-button</div>
+        <div class="">mypage-address-button</div>
+        <div class="">mypage-ordered-button-button</div>
+      </div>
+      <div class="mypage-information">
+        <table class="customer_info mb3">
+          <thead>
+            <th></th>
+            <th></th>
+            <th></th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>名前</td>
+              <td>(姓) <%= @customer.first_name %></td>
+              <td>(名) <%= @customer.last_name %></td>
+            </tr>
+            <tr>
+              <td>フリガナ</td>
+              <td>(セイ) <%= @customer.first_name_kana %></td>
+              <td>(メイ) <%= @customer.last_name_kana %></td>
+            </tr>
+            <tr>
+              <td>メールアドレス</td>
+              <td colspan="2"><%= @customer.email %></td>
+            </tr>
+            <tr>
+              <td>郵便番号</td>
+              <td colspan="2"><%= @customer.postal_code %></td>
+            </tr>
+            <tr>
+              <td>住所</td>
+              <td colspan="2"><%= @customer.adress %></td>
+            </tr>
+            <tr>
+              <td>電話番号</td>
+              <td colspan="2"><%= @customer.telephone_number %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
