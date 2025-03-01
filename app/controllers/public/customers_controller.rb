@@ -14,6 +14,7 @@ class Public::CustomersController < ApplicationController
     if @customer.update(customer_params)
       redirect_to public_mypage_path
     else
+      @genres = Genre.only_active
       render :edit
     end
   end

@@ -12,7 +12,11 @@
       </div>
       <div class="mypage-edit-form">
         <%= form_with model:@customer, url: public_customer_path do |f| %>
-		    <%= render "layouts/errors", obj: @customer %>
+          <div class="error-title">
+            <% if f.object.errors.present? %>
+              <%= pluralize(@customer.errors.count, "件") %>のエラーが発生しました。
+            <% end %>
+          </div>
           <table>
             <thead>
               <th></th>
@@ -22,29 +26,113 @@
             <tbody>
               <tr>
                 <td>氏名</td>
-                <td><%= f.label :last_name, "(名)" %><%= f.text_field :last_name, :placeholder =>"#{@customer.last_name}" %></td>
-                <td><%= f.label :first_name, "(姓)" %><%= f.text_field :first_name, :placeholder =>"#{@customer.first_name}" %></td>
+                <td><%= f.label :last_name, "(姓)" %><%= f.text_field :last_name, :placeholder =>"#{@customer.last_name}" %></td>
+                <td><%= f.label :first_name, "(名)" %><%= f.text_field :first_name, :placeholder =>"#{@customer.first_name}" %></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <% if f.object.errors[:last_name].present? %>
+                    <div class="error-message">
+                      <%= f.object.errors.full_messages_for(:last_name).join(", ") %>
+                    </div>
+                  <% end %>
+                </td>
+                <td>
+                  <% if f.object.errors[:first_name].present? %>
+                    <div class="error-message">
+                      <%= f.object.errors.full_messages_for(:first_name).join(", ") %>
+                    </div>
+                  <% end %>
+                </td>
               </tr>
               <tr>
                 <td>フリガナ</td>
-                <td><%= f.label :first_name, "(姓)", class: "" %><%= f.text_field :first_name, :placeholder =>"#{@customer.first_name}" %></td>
-                <td><%= f.label :last_name, "(名)", class: "" %><%= f.text_field :last_name, :placeholder =>"#{@customer.last_name}" %></td>
+                <td><%= f.label :first_name_kana, "(セイ)", class: "" %><%= f.text_field :first_name_kana, :placeholder =>"#{@customer.first_name}" %></td>
+                  <% if f.object.errors[:first_name_kana].present? %>
+                    <div class="error-message">
+                      <%= f.object.errors.full_messages_for(:first_name).join(", ") %>
+                    </div>
+                  <% end %>
+                <td><%= f.label :last_name_kana, "(メイ)", class: "" %><%= f.text_field :last_name_kana, :placeholder =>"#{@customer.last_name}" %></td>
+                <% if f.object.errors[:first_name_kana].present? %>
+                  <div class="error-message">
+                    <%= f.object.errors.full_messages_for(:first_name_kana).join(", ") %>
+                  </div>
+                <% end %>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <% if f.object.errors[:last_name_kana].present? %>
+                    <div class="error-message">
+                      <%= f.object.errors.full_messages_for(:last_name).join(", ") %>
+                    </div>
+                  <% end %>
+                </td>
+                <td>
+                  <% if f.object.errors[:first_name_kana].present? %>
+                    <div class="error-message">
+                      <%= f.object.errors.full_messages_for(:first_name).join(", ") %>
+                    </div>
+                  <% end %>
+                </td>
               </tr>
               <tr>
 					      <td><%= f.label :email, "メールアドレス" %></td>
-					      <td colspan="2"><%= f.text_field :postal_code, :placeholder =>"#{@customer.postal_code}", class: "" %></td>
+					      <td colspan="2"><%= f.text_field :email, :placeholder =>"#{@customer.postal_code}", class: "" %></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td colspan="2">
+                  <% if f.object.errors[:email].present? %>
+                    <div class="error-message">
+                      <%= f.object.errors.full_messages_for(:email).join(", ") %>
+                    </div>
+                  <% end %>
+                </td>
               </tr>
               <tr>
 					      <td><%= f.label :postal_code, "郵便番号(ハイフンなし7桁)" %></td>
 					      <td colspan="2"><%= f.text_field :postal_code, :placeholder =>"#{@customer.postal_code}", class: "" %></td>
               </tr>
               <tr>
-					      <td><%= f.label :address, "住所(郵便番号から自動入力)" %></td>
+                <td></td>
+                <td colspan="2">
+                  <% if f.object.errors[:postal_code].present? %>
+                    <div class="error-message">
+                      <%= f.object.errors.full_messages_for(:postal_code).join(", ") %>
+                    </div>
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+					      <td><%= f.label :adress, "住所(郵便番号から自動入力)" %></td>
 					      <td colspan="2"><%= f.text_field :adress, :placeholder =>"#{@customer.adress}", class: "" %></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td colspan="2">
+                  <% if f.object.errors[:adress].present? %>
+                    <div class="error-message">
+                      <%= f.object.errors.full_messages_for(:adress).join(", ") %>
+                    </div>
+                  <% end %>
+                </td>
               </tr>
               <tr>
                 <td><%= f.label :telephone_number, "電話番号(ハイフンなし10or11桁)" %></td>
                 <td colspan="2"><%= f.text_field :telephone_number, :placeholder =>"#{@customer.telephone_number}" %></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td colspan="2">
+                  <% if f.object.errors[:telephone_number].present? %>
+                    <div class="error-message">
+                      <%= f.object.errors.full_messages_for(:telephone_number).join(", ") %>
+                    </div>
+                  <% end %>
+                </td>
               </tr>
             </tbody>
           </table>
