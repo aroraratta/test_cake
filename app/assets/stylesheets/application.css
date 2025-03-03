@@ -96,6 +96,23 @@ main {
   }
 }
 
+
+/* ----------public/customer#edit用CSS */
+.mypage-edit {
+  width: 100%;
+  margin: 50px;
+  .mypage-edit-form {
+    background-color: #ffe6fd;
+    border-radius: 10px;
+    .form-subtitle {
+      font-size: 12px;
+    }
+    .padding-bottom {
+      padding-bottom: 30px;
+    }
+  }
+}
+
 /* ----------public/items#index用CSS */
 .item-index {
   width: 100%;
