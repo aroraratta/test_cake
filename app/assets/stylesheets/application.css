@@ -102,6 +102,7 @@ main {
   width: 100%;
   margin: 50px;
   .mypage-edit-form {
+    padding: 20px;
     background-color: #ffe6fd;
     border-radius: 10px;
     .form-subtitle {
@@ -174,6 +175,27 @@ main {
   }
 }
 
+/* ---------- エラーメッセージ用CSS */
+.error-title {
+  margin: 10px;
+  background-color: rgb(255, 220, 220);
+  border: 1px solid red;
+  border-left-width: 5px;
+  border-radius: 3px;
+  color: red;
+  i {
+    color: red;
+  }
+}
+
+.error-message {
+  color: red;
+}
+
+input.error {
+  background-color: rgb(255, 220, 220);
+  border: 1px solid red;
+}
 
 /* ----------ヘッダー用CSS */
 header {

@@ -12,12 +12,12 @@
       </div>
       <div class="mypage-edit-form">
         <%= form_with model:@customer, url: public_customer_path do |f| %>
-          <div class="error-title">
-            <% if f.object.errors.present? %>
+          <% if f.object.errors.present? %>
+            <p class="error-title">
               <i class="fa-solid fa-triangle-exclamation"></i>
               <%= pluralize(@customer.errors.count, "件") %>のエラーが発生しました。
-            <% end %>
-          </div>
+            </p>
+          <% end %>
           <table>
             <thead>
               <th></th>
