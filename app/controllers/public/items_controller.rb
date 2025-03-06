@@ -9,5 +9,6 @@ class Public::ItemsController < ApplicationController
   def show
     @genres = Genre.only_active
     @item = Item.where_genre_active.find(params[:id])
+    @cart_item = CartItem.new
   end
 end
