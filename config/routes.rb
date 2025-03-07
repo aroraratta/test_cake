@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   }
 
   namespace :public do
-    resources :items, only: [:index, :show]
+    resources :items, only: [:index, :show] do
+      resources :cart_items, only: [:create, :update]
+    end
     resources :customers, only: [:show, :edit, :update]
     get "customers/mypage" => "customers#show", as: "mypage"
   end

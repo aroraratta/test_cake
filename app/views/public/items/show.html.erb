@@ -17,12 +17,23 @@
         </div>
         <div class="item-information-order">
 				  <% if customer_signed_in? %>
-            <div class="item-information-order-amount">
-							a
-            </div>
-            <div class="positive-button">
-							a
-            </div>
+            <% if current_customer.has_in_cart(@item) %>
+              <div class="item-information-order-amount">
+                <%= form_with model: [@item, current_customer.has_in_cart(@item)] do |f| %>
+                  <p>こちらの商品は、既にカートに入っています。</p>
+                  <%= f.select :amount, [*(1..10)] %>
+                  <%= f.submit "数量変更", class: "" %>
+                <% end %>
+              </div>
+					  <% elsif @item.is_active? %>
+              <div class="positive-button">
+                <%= form_with model: [@item, @cart_item], url: public_item_cart_items_path(@item, @cart_item) do |f| %>
+                  <p>数量を選択して下さい。</p>
+                  <%= f.select :amount, [*(1..10)], {selected: 1} %>
+                  <%= f.submit "カートに入れる", class: "" %>
+                <% end %>
+              </div>
+            <% end %>
           <% else %>
             <p>注文するために<%= link_to "ログイン", new_customer_session_path %>してください。</p>
           <% end %>

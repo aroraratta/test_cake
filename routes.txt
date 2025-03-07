@@ -11,6 +11,9 @@
                                          PUT    /customers(.:format)                                                                              public/registrations#update
                                          DELETE /customers(.:format)                                                                              public/registrations#destroy
                                          POST   /customers(.:format)                                                                              public/registrations#create
+                  public_item_cart_items POST   /public/items/:item_id/cart_items(.:format)                                                       public/cart_items#create
+                   public_item_cart_item PATCH  /public/items/:item_id/cart_items/:id(.:format)                                                   public/cart_items#update
+                                         PUT    /public/items/:item_id/cart_items/:id(.:format)                                                   public/cart_items#update
                             public_items GET    /public/items(.:format)                                                                           public/items#index
                              public_item GET    /public/items/:id(.:format)                                                                       public/items#show
                     edit_public_customer GET    /public/customers/:id/edit(.:format)                                                              public/customers#edit
