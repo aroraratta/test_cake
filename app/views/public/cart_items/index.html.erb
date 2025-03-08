@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="customer-page">
+    <div class="genre-index">
+      <h3>ジャンル一覧</h3>
+      <% @genres.each do |genre| %>
+        <%= link_to genre.name %>
+      <% end %>
+    </div>
+    <div class="cart-item-index">
+      <p>ショッピングカート</p>
+    </div>
+  </div>
+</div>

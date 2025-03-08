@@ -11,11 +11,15 @@ class Public::CartItemsController < ApplicationController
       @cart_item = current_customer.cart_items.new(cart_item_params)
       @cart_item.item_id = @item.id
       if @cart_item.save
-        redirect_to cart_items_path
+        redirect_to public_cart_items_path
       else
         render 'public/items/show'
       end
     end
+  end
+
+  def index
+    @cart_items = current_customer.cart_items.includes(:item)
   end
 
   private

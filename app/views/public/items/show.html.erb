@@ -19,7 +19,7 @@
 				  <% if customer_signed_in? %>
             <% if current_customer.has_in_cart(@item) %>
               <div class="item-information-order-amount">
-                <%= form_with model: [@item, current_customer.has_in_cart(@item)] do |f| %>
+                <%= form_with model: [@item, current_customer.has_in_cart(@item)], url: public_item_cart_item_path(@item, current_customer.has_in_cart(@item)) do |f| %>
                   <p>こちらの商品は、既にカートに入っています。</p>
                   <%= f.select :amount, [*(1..10)] %>
                   <%= f.submit "数量変更", class: "" %>
