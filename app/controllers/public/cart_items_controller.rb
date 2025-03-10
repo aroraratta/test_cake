@@ -6,7 +6,7 @@ class Public::CartItemsController < ApplicationController
     if @cart_item
       new_amount = @cart_item.amount + cart_item_params[:amount]
       @cart_item.update(amount: new_amount)
-      redirect_to cart_items_path
+      redirect_to public_cart_items_path
     else
       @cart_item = current_customer.cart_items.new(cart_item_params)
       @cart_item.item_id = @item.id
@@ -17,8 +17,16 @@ class Public::CartItemsController < ApplicationController
       end
     end
   end
+  
+  def update
+    if @cart_item
+      @cart_item.update(cart_item_params)
+      redirect_to public_cart_items_path
+    end
+  end
 
   def index
+    @genres = Genre.only_active
     @cart_items = current_customer.cart_items.includes(:item)
   end
 
