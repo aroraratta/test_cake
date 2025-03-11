@@ -8,6 +8,46 @@
     </div>
     <div class="cart-item-index">
       <p>ショッピングカート</p>
+      <table class="">
+        <thead>
+          <tr>
+            <th colspan="2">商品名</th>
+            <th>単価(税込)</th>
+            <th>数量</th>
+            <th>小計</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @cart_items.each do |cart_item| %>
+            <tr>
+              <td>
+                <%= image_tag cart_item.item.get_item_image, class: "" %>
+              </td>
+              <td><%= link_to cart_item.item.name, public_item_path(cart_item.item) %></td>
+              <td class=""><%= cart_item.item.with_tax_price %>円</td>
+              <td>
+                <%= form_with model: [cart_item.item, cart_item], url: public_item_cart_item_path(cart_item.item, cart_item) do |f| %>
+                  <%= f.select :amount, [*(1..10)], {include_blank: false}, id: "cart_item_amount_#{cart_item.id}" %>
+                  <%= f.submit "変更", class: "" %>
+                <% end %>
+              </td>
+              <td class=""><%= cart_item.subtotal %>円</td>
+              <td class="">
+                <%= link_to "削除", public_item_cart_item_path(item_id: cart_item.item.id, id: cart_item.id), method: :delete, "data-confirm" => "#{cart_item.item.name}をカートから削除します。よろしいでしょうか？", class: "", id: "" %>
+              </td>
+            </tr>
+          <% end %>
+          <tr>
+            <td></td>
+            <td><%= link_to "買い物を続ける", root_path, class: "" %></td>
+            <td></td>
+            <td class="">合計金額</td>
+            <td class=""><%= @cart_items.sum(&:subtotal) %>円</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

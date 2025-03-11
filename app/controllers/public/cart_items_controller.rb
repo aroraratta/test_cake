@@ -25,6 +25,11 @@ class Public::CartItemsController < ApplicationController
     end
   end
 
+  def destroy
+    @cart_item.destroy
+    redirect_to public_cart_items_path
+  end
+
   def index
     @genres = Genre.only_active
     @cart_items = current_customer.cart_items.includes(:item)
