@@ -176,6 +176,33 @@ main {
 }
 
 /* ---------- エラーメッセージ用CSS */
+.cart-item-index {
+  width: 100%;
+  margin: 50px;
+  table {
+    width: 100%;
+    border: 2px solid #fff5fe;
+    th {
+      background-color: #ffe6fd;
+    }
+    td {
+      background-color: white;
+    }
+    th:nth-child(1), td:nth-child(1) { width: 10%; }
+    th:nth-child(2), td:nth-child(2) { width: 20%; }
+    th:nth-child(3), td:nth-child(3) { width: 20%; }
+    th:nth-child(4), td:nth-child(4) { width: 20%; }
+    th:nth-child(5), td:nth-child(5) { width: 20%; }
+    th:nth-child(6), td:nth-child(6) { width: 10%; }
+    img {
+      height: 150px;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+/* ---------- エラーメッセージ用CSS */
 .error-title {
   margin: 10px;
   background-color: rgb(255, 220, 220);

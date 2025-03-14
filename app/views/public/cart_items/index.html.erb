@@ -7,7 +7,7 @@
       <% end %>
     </div>
     <div class="cart-item-index">
-      <p>ショッピングカート</p>
+      <h2>ショッピングカート</h2>
       <table class="">
         <thead>
           <tr>
@@ -38,16 +38,10 @@
               </td>
             </tr>
           <% end %>
-          <tr>
-            <td></td>
-            <td><%= link_to "買い物を続ける", root_path, class: "" %></td>
-            <td></td>
-            <td class="">合計金額</td>
-            <td class=""><%= @cart_items.sum(&:subtotal) %>円</td>
-            <td></td>
-          </tr>
         </tbody>
       </table>
-    </div>
+    <%= link_to "買い物を続ける", root_path, class: "" %>
+    <p class="">合計金額</p>
+    <p class=""><%= @cart_items.sum(&:subtotal) %>円</p>
   </div>
 </div>
