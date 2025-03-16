@@ -181,12 +181,19 @@ main {
   margin: 50px;
   table {
     width: 100%;
-    border: 2px solid #fff5fe;
+    border-spacing: 0;
     th {
       background-color: #ffe6fd;
     }
     td {
       background-color: white;
+      border-top: 4px solid #fff5fe;
+    }
+    th:nth-child(n+1):nth-child(-n+4) {
+      border-right: 4px solid #fff5fe;
+    }
+    td:nth-child(n+2):nth-child(-n+5) {
+      border-right: 4px solid #fff5fe;
     }
     th:nth-child(1), td:nth-child(1) { width: 10%; }
     th:nth-child(2), td:nth-child(2) { width: 20%; }
