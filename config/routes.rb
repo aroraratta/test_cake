@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   namespace :public do
-    get 'orders/confirm'
+    get "orders/confirm"
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
@@ -20,7 +20,10 @@ Rails.application.routes.draw do
     end
     resources :cart_items, only: [:index]
     resources :customers, only: [:show, :edit, :update]
+    resources :orders, only: [:new, :index, :create, :show]
     get "customers/mypage" => "customers#show", as: "mypage"
+    post "orders/confirm" => "orders#confirm"
+    get "orders/thanks" => "orders#thanks"
   end
 
 

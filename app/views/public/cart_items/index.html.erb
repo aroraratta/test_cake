@@ -41,6 +41,7 @@
         </tbody>
       </table>
     <%= link_to "買い物を続ける", root_path, class: "" %>
+    <%= link_to "注文情報入力に進む", new_public_order_path, class: "" %>
     <p class="">合計金額</p>
     <p class=""><%= @cart_items.sum(&:subtotal) %>円</p>
   </div>

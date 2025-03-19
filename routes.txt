@@ -1,4 +1,5 @@
                                   Prefix Verb   URI Pattern                                                                                       Controller#Action
+                   public_orders_confirm GET    /public/orders/confirm(.:format)                                                                  public/orders#confirm
                                     root GET    /                                                                                                 homes#top
                              homes_about GET    /homes/about(.:format)                                                                            homes#about
                     new_customer_session GET    /customers/sign_in(.:format)                                                                      public/sessions#new
@@ -14,13 +15,21 @@
                   public_item_cart_items POST   /public/items/:item_id/cart_items(.:format)                                                       public/cart_items#create
                    public_item_cart_item PATCH  /public/items/:item_id/cart_items/:id(.:format)                                                   public/cart_items#update
                                          PUT    /public/items/:item_id/cart_items/:id(.:format)                                                   public/cart_items#update
+                                         DELETE /public/items/:item_id/cart_items/:id(.:format)                                                   public/cart_items#destroy
                             public_items GET    /public/items(.:format)                                                                           public/items#index
                              public_item GET    /public/items/:id(.:format)                                                                       public/items#show
+                       public_cart_items GET    /public/cart_items(.:format)                                                                      public/cart_items#index
                     edit_public_customer GET    /public/customers/:id/edit(.:format)                                                              public/customers#edit
                          public_customer GET    /public/customers/:id(.:format)                                                                   public/customers#show
                                          PATCH  /public/customers/:id(.:format)                                                                   public/customers#update
                                          PUT    /public/customers/:id(.:format)                                                                   public/customers#update
+                           public_orders GET    /public/orders(.:format)                                                                          public/orders#index
+                                         POST   /public/orders(.:format)                                                                          public/orders#create
+                        new_public_order GET    /public/orders/new(.:format)                                                                      public/orders#new
+                            public_order GET    /public/orders/:id(.:format)                                                                      public/orders#show
                            public_mypage GET    /public/customers/mypage(.:format)                                                                public/customers#show
+                                         POST   /public/orders/confirm(.:format)                                                                  public/orders#confirm
+                    public_orders_thanks GET    /public/orders/thanks(.:format)                                                                   public/orders#thanks
                        new_admin_session GET    /admin/sign_in(.:format)                                                                          admin/sessions#new
                            admin_session POST   /admin/sign_in(.:format)                                                                          admin/sessions#create
                    destroy_admin_session DELETE /admin/sign_out(.:format)                                                                         admin/sessions#destroy
