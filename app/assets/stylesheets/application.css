@@ -175,6 +175,12 @@ main {
   }
 }
 
+/* ----------public/orders#index用CSS */
+.order-new {
+  width: 100%;
+  margin: 50px;
+}
+
 /* ---------- エラーメッセージ用CSS */
 .cart-item-index {
   width: 100%;
