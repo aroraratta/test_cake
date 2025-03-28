@@ -1,11 +1,6 @@
 <div class="container">
   <div class="customer-page">
-    <div class="genre-index">
-      <h3>ジャンル一覧</h3>
-      <% @genres.each do |genre| %>
-        <%= link_to genre.name %>
-      <% end %>
-    </div>
+    <%= render "genre_index", genres: @genres %>
     <div class="item-show">
       <%= image_tag @item.get_item_image, class: "item-image" %>
       <div class="item-information">
