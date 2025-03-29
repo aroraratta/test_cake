@@ -4,4 +4,10 @@ class Public::AddressesController < ApplicationController
     @addresses = current_customer.addresses
     @address = Address.new
   end
+  private
+
+
+  def address_params
+    params.require(:adress).permit(:postal_code, :destination, :name)
+  end
 end
