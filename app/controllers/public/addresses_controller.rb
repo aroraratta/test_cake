@@ -13,6 +13,16 @@ class Public::AddressesController < ApplicationController
     @address.customer_id = current_customer.id
     @address.save ? (redirect_to addresses_path) : (render :index)
   end
+  
+  def edit
+    @addresses = current_customer.addresses
+    @address = @addresses.find_by(id: params[:id])
+    redirect_to addresses_path unless @address
+  end
+
+  def update
+    @address.update(address_params) ? (redirect_to addresses_path) : (render :edit)
+  end
 
   private
 
