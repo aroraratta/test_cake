@@ -1,5 +1,4 @@
-<%= form_with model:adress, local:true do |f| %>
-	<%= render 'layouts/error_messages', resource: address %>
+<%= form_with model:address, local:true do |f| %>
 	<div class="field">
 		<%= f.label :postal_code, "郵便番号(ハイフンなし7桁)" %>
 		<%= f.text_field :postal_code, autocomplete: "postal_code", placeholder: "郵便番号", class: "jpostal_code" %>
