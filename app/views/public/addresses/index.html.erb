@@ -1,27 +1,35 @@
-<section class="inner">
-	<h2 class="section-ttl">配送先登録 / 一覧</h2>
-  <%= render 'form', address: @address, submit: '登録' %>
-	<table class="addresses mt2 has_border">
-		<thead>
-			<tr>
-				<th>郵便番号</th>
-				<th>住所</th>
-				<th>宛名</th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			<% @addresses.each do |address| %>
-				<tr>
-					<td class="text-center"><%= address.postal_code %></td>
-					<td><%= address.destination %></td>
-					<td><%= address.name %></td>
-					<td class="text-center">
-						<%= link_to "編集", edit_address_path(address), class: "btn btn-success" %>
-						<%= link_to "削除", address_path(address), method: :delete, "data-confirm" => "削除します。本当によろしいですか？", class: "btn btn-danger" %>
-					</td>
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
-</section>
+<div class="container">
+  <div class="row my-3">
+    <h1>配送先登録/一覧</h1>
+  </div>
+
+  <div class="row my-3">
+    <%= render 'form', address: @address, submit_text: "新規投稿" %>
+  </div>
+
+  <div class="">
+    <table class="">
+      <thead class="">
+        <tr class="">
+          <th>郵便番号</th>
+          <th>住所</th>
+          <th>氏名</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @addresses.each do |registered_address| %>
+          <tr class="">
+            <td><%= registered_address.postal_code %></td>
+            <td><%= registered_address.address %></td>
+            <td><%= registered_address.name %></td>
+            <td>
+              <%= link_to "編集する", edit_address_path(registered_address), class: "btn btn-success mx-2" %>
+              <%= link_to "削除する", address_path(registered_address), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger mx-2" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
