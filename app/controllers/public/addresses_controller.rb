@@ -2,7 +2,7 @@ class Public::AddressesController < ApplicationController
   def index
     @genres = Genre.only_active
     @addresses = current_customer.addresses
-    @adress = Address.new
+    @address = Address.new
   end
 
   def create
@@ -25,7 +25,6 @@ class Public::AddressesController < ApplicationController
   end
 
   private
-
 
   def address_params
     params.require(:address).permit(:postal_code, :destination, :name)
