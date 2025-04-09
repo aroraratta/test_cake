@@ -181,6 +181,17 @@ main {
   margin: 50px;
 }
 
+
+/* ----------public/addresses#index用CSS */
+.addresses-index {
+  width: 100%;
+  margin: 50px;
+  h2, p {
+    display: inline-block;
+  }
+}
+
+
 /* ---------- エラーメッセージ用CSS */
 .cart-item-index {
   width: 100%;
