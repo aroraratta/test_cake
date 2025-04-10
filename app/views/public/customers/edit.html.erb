@@ -1,11 +1,6 @@
 <div class="container">
   <div class="customer-page">
-    <div class="genre-index">
-      <h3>ジャンル一覧</h3>
-      <% @genres.each do |genre| %>
-        <%= link_to genre.name %>
-      <% end %>
-    </div>
+    <%= render "public/items/genre_index", genres: @genres %>
     <div class="mypage-edit">
       <div class="mypage-edit-title">
         <h2>会員情報編集</h2>

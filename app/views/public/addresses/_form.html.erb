@@ -1,15 +1,26 @@
 <%= form_with model:address, url: public_addresses_path, local:true do |f| %>
-	<div class="field">
-		<%= f.label :postal_code, "郵便番号(ハイフンなし7桁)" %>
-		<%= f.text_field :postal_code, autocomplete: "postal_code", placeholder: "郵便番号", class: "jpostal_code" %>
-	</div>
-	<div class="field">
-		<%= f.label :destination, "住所(郵便番号から自動入力)" %>
-		<%= f.text_field :destination, autocomplete: "destination", placeholder: "住所", class: "jpostal_address" %>
-	</div>
-	<div class="field">
-		<%= f.label :name, "宛名" %>
-		<%= f.text_field :name, autocomplete: "name", placeholder: "宛名" %>
-		<%= f.submit submit_text, class: "btn btn-primary" %>
-	</div>
+	<table>
+		<thead>
+			<th></th>
+			<th></th>
+		</thead>
+		<tbody>
+			<tr>
+				<td><%= f.label :postal_code, "郵便番号(ハイフンなし7桁)" %></td>
+				<td><%= f.text_field :postal_code, autocomplete: "postal_code", placeholder: "郵便番号", class: "jpostal_code" %></td>
+			</tr>
+			<tr>
+				<td><%= f.label :destination, "住所(郵便番号から自動入力)" %></td>
+				<td><%= f.text_field :destination, autocomplete: "destination", placeholder: "住所", class: "jpostal_address" %></td>
+			<tr>
+			<tr>
+				<td><%= f.label :name, "宛名" %></td>
+				<td><%= f.text_field :name, autocomplete: "name", placeholder: "宛名" %></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><%= f.submit submit_text, class: "btn btn-primary" %></td>
+			</tr>
+		</tbody>
+	</table>
 <% end %>
