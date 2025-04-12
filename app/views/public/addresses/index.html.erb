@@ -2,33 +2,34 @@
   <div class="customer-page">
     <%= render "public/items/genre_index", genres: @genres %>
     
-    <div class="addresses-index">
+    <div class="addresses">
       <h2>配送先登録/一覧</h2>
         <%= render "form", address: @address, submit_text: "新規投稿" %>
-        
-        <table class="">
-          <thead class="">
-            <tr class="">
-              <th>郵便番号</th>
-              <th>住所</th>
-              <th>氏名</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @addresses.each do |registered_address| %>
-              <tr class="">
-                <td><%= registered_address.postal_code %></td>
-                <td><%= registered_address.destination %></td>
-                <td><%= registered_address.name %></td>
-                <td>
-                  <%= link_to "編集する", edit_public_address_path(registered_address), class: "" %>
-                  <%= link_to "削除する", public_address_path(registered_address), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger mx-2" %>
-                </td>
+        <div class="addresses-index">
+          <table>
+            <thead>
+              <tr>
+                <th>郵便番号</th>
+                <th>住所</th>
+                <th>氏名</th>
+                <th></th>
               </tr>
-            <% end %>
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              <% @addresses.each do |registered_address| %>
+                <tr class="">
+                  <td><%= registered_address.postal_code %></td>
+                  <td><%= registered_address.destination %></td>
+                  <td><%= registered_address.name %></td>
+                  <td>
+                    <%= link_to "編集する", edit_public_address_path(registered_address), class: "" %>
+                    <%= link_to "削除する", public_address_path(registered_address), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger mx-2" %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>

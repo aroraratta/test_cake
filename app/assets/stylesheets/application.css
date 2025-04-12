@@ -183,16 +183,46 @@ main {
 
 
 /* ----------public/addresses#index用CSS */
-.addresses-index {
+.addresses {
   width: 100%;
   margin: 50px;
   h2, p {
     display: inline-block;
   }
+  .addresses-index {
+    table {
+      width: 100%;
+      border-spacing: 0;
+      th {
+        background-color: #ffe6fd;
+      }
+      td {
+        background-color: white;
+        border-top: 4px solid #fff5fe;
+      }
+      th:nth-child(n+1):nth-child(-n+4) {
+        border-right: 4px solid #fff5fe;
+      }
+      td:nth-child(n+2):nth-child(-n+5) {
+        border-right: 4px solid #fff5fe;
+      }
+      th:nth-child(1), td:nth-child(1) { width: 10%; }
+      th:nth-child(2), td:nth-child(2) { width: 20%; }
+      th:nth-child(3), td:nth-child(3) { width: 20%; }
+      th:nth-child(4), td:nth-child(4) { width: 20%; }
+      th:nth-child(5), td:nth-child(5) { width: 20%; }
+      th:nth-child(6), td:nth-child(6) { width: 10%; }
+      img {
+        height: 150px;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
 }
 
 
-/* ---------- エラーメッセージ用CSS */
+/* -----------public/cartitems#index用CSS */
 .cart-item-index {
   width: 100%;
   margin: 50px;
