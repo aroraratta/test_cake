@@ -5,4 +5,17 @@ class Public::OrdersController < ApplicationController
 
   def confirm
   end
+  
+  def create
+    @cart_items = current_customer.cart_items.includes(:item)
+    @order = current_customer.orders.new(order_params)
+    @order.shipping_cost = 800
+    @order.grand_total = @order.shipping_cost + @cart_items.sum(&:subtotal)
+    if @order.save
+      @order.create_order_details(current_customer)
+      redirect_to thanks_path
+    else
+      render :new
+    end
+  end
 end
