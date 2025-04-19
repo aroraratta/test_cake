@@ -2,9 +2,6 @@ class Public::OrdersController < ApplicationController
   def new
     @order = Order.new
   end
-
-  def confirm
-  end
   
   def create
     @cart_items = current_customer.cart_items.includes(:item)
