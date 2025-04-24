@@ -15,4 +15,10 @@ class Public::OrdersController < ApplicationController
       render :new
     end
   end
+  
+  private
+
+  def order_params
+    params.require(:order).permit(:postal_code, :destination, :name, :payment_method)
+  end
 end
