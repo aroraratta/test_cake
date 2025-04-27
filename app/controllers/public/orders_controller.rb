@@ -10,7 +10,7 @@ class Public::OrdersController < ApplicationController
     @order.grand_total = @order.shipping_cost + @cart_items.sum(&:subtotal)
     if @order.save
       @order.create_order_details(current_customer)
-      redirect_to thanks_path
+      redirect_to public_orders_thanks_path
     else
       render :new
     end
