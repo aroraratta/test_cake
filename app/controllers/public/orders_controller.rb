@@ -16,6 +16,11 @@ class Public::OrdersController < ApplicationController
     end
   end
   
+  def thanks
+    @cart_items = current_customer.cart_items.includes(:item)
+    redirect_to items_path unless @cart_items.first
+  end
+  
   private
 
   def order_params
