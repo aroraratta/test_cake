@@ -10,10 +10,15 @@ class Public::OrdersController < ApplicationController
     @order.grand_total = @order.shipping_cost + @cart_items.sum(&:subtotal)
     if @order.save
       @order.create_order_details(current_customer)
-      redirect_to public_orders_thanks_path
+      redirect_to ppublic_order_path
     else
       render :new
     end
+  end
+  
+  def show
+    @order = current_customer.orders.find(params[:id])
+    @order_details = @order.order_details.includes(:item)
   end
   
   def thanks
