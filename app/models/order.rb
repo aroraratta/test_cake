@@ -20,4 +20,17 @@ class Order < ApplicationRecord
       cart_items.destroy_all
     end
   end
+  
+  def get_shipping_informations_from(resource)
+    class_name = resource.class.name
+    if class_name == 'Customer' # resource: Customer
+      self.postal_code = resource.postal_code
+      self.destination = resource.address
+      self.name = resource.full_name
+    elsif class_name == 'Address' # resource: Address
+      self.postal_code = resource.postal_code
+      self.destination = resource.destination
+      self.name = resource.name
+    end
+  end
 end
