@@ -1,6 +1,4 @@
                                   Prefix Verb   URI Pattern                                                                                       Controller#Action
-                  public_addresses_index GET    /public/addresses/index(.:format)                                                                 public/addresses#index
-                   public_orders_confirm GET    /public/orders/confirm(.:format)                                                                  public/orders#confirm
                                     root GET    /                                                                                                 homes#top
                              homes_about GET    /homes/about(.:format)                                                                            homes#about
                     new_customer_session GET    /customers/sign_in(.:format)                                                                      public/sessions#new
@@ -35,7 +33,7 @@
                                          PUT    /public/addresses/:id(.:format)                                                                   public/addresses#update
                                          DELETE /public/addresses/:id(.:format)                                                                   public/addresses#destroy
                            public_mypage GET    /public/customers/mypage(.:format)                                                                public/customers#show
-                                         POST   /public/orders/confirm(.:format)                                                                  public/orders#confirm
+                   public_orders_confirm POST   /public/orders/confirm(.:format)                                                                  public/orders#confirm
                     public_orders_thanks GET    /public/orders/thanks(.:format)                                                                   public/orders#thanks
                        new_admin_session GET    /admin/sign_in(.:format)                                                                          admin/sessions#new
                            admin_session POST   /admin/sign_in(.:format)                                                                          admin/sessions#create

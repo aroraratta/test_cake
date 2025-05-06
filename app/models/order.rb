@@ -25,7 +25,7 @@ class Order < ApplicationRecord
     class_name = resource.class.name
     if class_name == 'Customer' # resource: Customer
       self.postal_code = resource.postal_code
-      self.destination = resource.address
+      self.destination = resource.adress
       self.name = resource.full_name
     elsif class_name == 'Address' # resource: Address
       self.postal_code = resource.postal_code

@@ -4,6 +4,7 @@ class Public::OrdersController < ApplicationController
   end
   
   def confirm
+    @cart_items = current_customer.cart_items.includes(:item)
     @order = Order.new(order_params)
     if params[:select_address] == '0'
       @order.get_shipping_informations_from(current_customer)
